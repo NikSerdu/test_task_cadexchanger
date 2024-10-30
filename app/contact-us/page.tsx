@@ -1,7 +1,5 @@
-import Container from '@/shared/ui/Container/Container'
 import { Metadata } from 'next'
 import { FC } from 'react'
-import styled from 'styled-components'
 import ContactForm from './_components/ContactForm/ContactForm'
 
 export const metadata: Metadata = {
@@ -20,16 +18,8 @@ export const metadata: Metadata = {
 	},
 }
 
-const StyledContainer = styled(Container)`
-	text-align: center;
-`
-
 const ContactUs: FC = () => {
-	return (
-		<StyledContainer>
-			<ContactForm />
-		</StyledContainer>
-	)
+	return <ContactForm />
 }
 
 export default ContactUs

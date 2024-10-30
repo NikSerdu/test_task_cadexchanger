@@ -1,7 +1,7 @@
 'use client'
-
 import { ContactService } from '@/services/contact.service'
 import Button from '@/shared/ui/Button/Button'
+import Container from '@/shared/ui/Container/Container'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation } from '@tanstack/react-query'
 import { Form, Input } from 'antd'
@@ -30,6 +30,10 @@ const StyledButton = styled(Button)`
 	width: 100%;
 `
 
+const StyledContainer = styled(Container)`
+	text-align: center;
+`
+
 const { TextArea } = Input
 
 const ContactForm: FC = () => {
@@ -45,11 +49,15 @@ const ContactForm: FC = () => {
 	})
 
 	if (data && isSuccess) {
-		;<Title>{data.message}</Title>
+		return (
+			<StyledContainer>
+				<Title>{data.message}</Title>
+			</StyledContainer>
+		)
 	}
 
 	return (
-		<>
+		<StyledContainer>
 			<Title>Only CTA on the page</Title>
 			<StyledForm onSubmit={handleSubmit(onSubmit)}>
 				<Controller
@@ -100,7 +108,7 @@ const ContactForm: FC = () => {
 
 				<StyledButton type='submit'>Submit</StyledButton>
 			</StyledForm>
-		</>
+		</StyledContainer>
 	)
 }
 
